@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html charset=UTF-8"/>
+    <title>Notes</title>
+</head>
+<body>
+<div th:switch="${posts}">
+    <h2 th:case="null">Notes not found!</h2>
+    <div th:case="*">
+        <h2>Posts</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Announcement</th>
+                <th>Full text</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="el : ${posts}">
+                <td th:text="${el.id}"></td>
+                <td th:text="${el.title}"></td>
+                <td th:text="${el.announcement}"></td>
+                <td th:text="${el.fullText}"></td>
+
+                <td><a th:href="@{blog/{id}(id=${el.id})}">Read More</a></td>
+                <td><a th:href="@{blog/{id}/edit(id=${el.id})}">Edit</a></td>
+                <td><a th:href="@{delete-note/{id}(id=${el.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/create-note">Create note</a></p>
+</div>
+</body>
+</html>
