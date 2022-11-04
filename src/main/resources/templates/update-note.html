@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Update note</title>
 </head>
 <body>
-
+<form action="#" th:action="@{/update-note}" th:object="${post}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <br/>
+    <label for="title">Title</label>
+    <input type="text" th:field="*{title}" id="title" placeholder="Title">
+    <br/>
+    <label for="announcement">Announcement</label>
+    <input type="text" th:field="*{announcement}" id="announcement" placeholder="Announcement">
+    <br/>
+    <label for="fullText">Full Text</label>
+    <input type="text" th:field="*{fullText}" id="fullText" placeholder="Full Text">
+    <br/>
+    <input type="submit" value="Update note">
+</form>
 </body>
 </html>

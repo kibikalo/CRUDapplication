@@ -42,4 +42,16 @@ public class PostController {
         postService.deleteById(id);
         return "redirect:/";
     }
+    @GetMapping("/update-note/{id}")
+    public String updateNoteForm(@PathVariable("id")  Long id, Model model) {
+        Post post = postService.findById(id);
+        model.addAttribute("post", post);
+        return "/update-note";
+    }
+
+    @PostMapping("/update-note")
+    public String updateNote(Post post) {
+        postService.savePost(post);
+        return "redirect:/";
+    }
 }

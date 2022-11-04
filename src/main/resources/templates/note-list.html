@@ -25,8 +25,8 @@
                 <td th:text="${el.announcement}"></td>
                 <td th:text="${el.fullText}"></td>
 
-                <td><a th:href="@{blog/{id}(id=${el.id})}">Read More</a></td>
-                <td><a th:href="@{blog/{id}/edit(id=${el.id})}">Edit</a></td>
+<!--                <td><a th:href="@{blog/{id}(id=${el.id})}">Read More</a></td>-->
+                <td><a th:href="@{update-note/{id}(id=${el.id})}">Edit</a></td>
                 <td><a th:href="@{delete-note/{id}(id=${el.id})}">Delete</a></td>
             </tr>
             </tbody>
